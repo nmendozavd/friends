@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Friends</title>
+</head>
+<body>
+    <!-- We can use the line below to see all of our data in our template -->
+    <!-- {{ all_friends }} displays all users in friends table like it would in the terminal  -->
+    <h1>These are all my Friends!</h1>
+    {% for friend in all_friends %}
+        <p> ID: {{ friend['id'] }}</p>
+        <p>First Name: {{ friend['first_name'] }}</p>
+        <p>Last Name: {{ friend ['last_name'] }}</p>
+        <p>Occupation: {{ friend['occupation'] }}</p>
+        <hr>
+    {% endfor %}
+
+    <h2>Add a Friend</h2>
+    <form action="/friends" method="POST">
+        First Name: <input type="text" name="first_name" id="first_name">
+        <br>
+        Last Name: <input type="text" name="last_name" id="last_name">
+        <br>
+        Occupation: <input type="text" name="occupation" id="occupation">
+        <br>
+        <input type="submit" value="Add">     
+    </form>
+</body>
+</html>
